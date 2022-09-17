@@ -1,0 +1,173 @@
+@font-face {
+    font-family: 'MADE Okine Sans PERSONAL USE Light' ;
+    src: url('../assets/made-okine-sans-personal-use/MADEOkineSansPERSONALUSE-Light.otf');
+}
+body {
+    display: flex;
+    width: 100%;
+    font-family: 'MADE Okine Sans PERSONAL USE Light' !important;
+    font-size: 14px !important;
+}
+ul {    
+    margin: 0;
+    padding: 0;
+}
+/* .left {
+    
+} */
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f7f5f6;
+    padding: 24px 40px;
+    font-size: 16px !important;
+}
+.list-icon {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    width: 251px;
+}
+.list-icon > li {
+    padding: 18px 0;
+    color: #766E66;
+    cursor: pointer;
+}
+.icon{transition: all 0.4s ease;} 
+.active {
+    text-align: center;
+    width: 59px;
+    height: 60px;
+    color: #fff !important;
+    background-color: #191715;
+    border-radius: 8px;
+    border: 1px solid #191715;
+}
+.active:hover {
+    color: #191715 !important;
+    background-color: #f7f5f6;
+    border: 1px solid #f7f5f6;
+}
+.dashboard:hover {transform: rotate(180deg); color: #191715;}
+.notification:hover, .heart-half:hover {transform: scale(1.2); color: #191715;}
+@keyframes animaton-shopping {
+    0% {transform: translateX(2px);}
+    20% {transform: translateX(0px);}
+    40% {transform: translateX(2px);}
+    60% {transform: translateX(0px);}
+    70% {transform: translateX(2px);}
+    80% {transform: translateX(0px);}
+    90% {transform: translateX(2px);}
+    100% {transform: translateX(0px);}
+}
+.active:hover .bag-shopping {
+    animation-name: animaton-shopping;
+    animation-duration: 0.6s;
+}
+.img-nav {
+    background: url('../assets/img/joshua-rawson-harris-dN67hPE5KWY-unsplash.jpg'), #191715;
+    backdrop-filter: blur(2px);
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+}
+.img-nav:hover {transform: translateX(2px);}
+
+.left-content {
+    padding: 28px 40px;
+}
+.book_buy {display: flex;}
+.book_buy > div {
+    margin-right: 24px;
+    cursor: pointer;
+}
+.book {font-weight: bold;}
+.buy {color: #A0A0A0;}
+.line-small {
+    position: relative;
+    left: 37%;
+    display: block;
+    width: 20%;
+    height: 2px;
+    background-color: #F49338;
+    transition: all 0.5s ease;
+}
+.buy > .line-small {width: 0;}
+.book_buy > div:hover .line-small {width: 100%; left: 0;}
+
+.title {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    margin-top: 20px;
+    height: 56px;
+    overflow: hidden;
+}
+.search-title {
+    padding-left: 1px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;    
+    transition: all 0.5s ease;
+}
+.search-title:hover {transform: scale(1.2);}
+.title > span {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 56px;
+    color: #292726;
+    margin-left: 25px;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+.ellipse {
+    position: absolute;
+    right: 0;
+    top: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background-color: #9F9B98;
+    border: 1px solid #9F9B98;
+    border-radius: 8px;
+    transition: all 0.5s ease;
+}
+.ellipse:hover {background-color: #fff;}
+.round-center {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.ellipse:hover .round-center {background-color: #9F9B98;}
+.title-input {
+    position: absolute;
+    border-radius: 8px;
+    border: 1px solid #9b9b9b;
+    top: 15px;
+    /* left: 31px; */
+    left: -24%;
+    transition: all 0.3s ease;
+}
+.title-input:focus-visible {
+    outline: none;
+    border: 1px solid #191715;
+}
+
+.navigation {
+    margin-top: 28px;
+}
+
+.right {
+    background-image: url('../assets/img/christian-bartolone-TaS_pGbMgRs-unsplash.jpg');
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
