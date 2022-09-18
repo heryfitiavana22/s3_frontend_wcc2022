@@ -500,7 +500,9 @@ nav {
 .to-hotel:hover {transform: translateX(2px);}
 .to-hotel > rect:hover {fill: #906844;}
 
+
 .right {
+    display: flex;
     background-image: url('../assets/img/christian-bartolone-TaS_pGbMgRs-unsplash.jpg');
     background-size: cover;
     position: fixed;
@@ -508,6 +510,88 @@ nav {
     right: 0;
     height: 100%;
 }
+.hotel_proposed {
+    position: absolute;
+    padding: 5px;
+    left: 10%;
+    top: 35%;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.img-hotel {
+    background-image: url('../assets/img/johnson-johnson-U6Q6zVDgmSs-unsplash\ \(1\).jpg');
+    background-size: cover;
+    width: 180px;
+    height: 100px;
+    border-radius: 4px;
+    margin-bottom: 7px;
+    cursor: zoom-in;
+}
+.name {font-size: 18px;}
+.longeur {font-size: 12px; margin-left: 8px; margin-top: 2px;}
+.longeur::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #000;
+    margin-right: 5px;
+}
+.btn-details {
+    position: relative;
+    margin-top: 8px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 45px;
+    background-color: #191715;
+    color: #fff;
+    border-radius: 4px;
+    transition: all .5s ease;
+    cursor: pointer;
+}
+.arrow-right {
+    transform: rotate(180deg);
+    transition: all .5s ease;
+}
+.btn-details:hover > .arrow-right {transform: translateX(10px)  rotate(180deg);}
+
+.place-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.zoom-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 40px;
+    right: 30px;
+}
+.plus, .minus, .select {
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(2px);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.plus:hover, .minus:hover, .select :hover {transform: scale(1.1);}
+.plus {border-bottom: 1px solid #fff;}
+.select {margin-top: 14px;}
 
 .animation {
     position: fixed;

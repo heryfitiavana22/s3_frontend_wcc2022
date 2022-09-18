@@ -1,10 +1,13 @@
 let inputTitle = document.querySelector('.title-input'),
     city_moab = document.querySelector('.title>span');
 
-let animation = document.querySelector('.animation');
-setTimeout(()=>{
-    animation.style.transform = 'scale(0)'
-},8000)
+function stopAnimation(duree) {
+    let animation = document.querySelector('.animation');
+    setTimeout(()=>{
+        animation.style.transform = 'scale(0)'
+    },duree)
+}
+stopAnimation(8000)
     
 function showInputTitle() {
     inputTitle.style.left = '0'
@@ -144,13 +147,15 @@ window.onclick = function(e) {
     }
 
     if((!e.target.matches('.zoom-in > img')) && (!e.target.matches('.area>img')) && 
-       (!e.target.matches('.area')) && (!e.target.matches('.image-hotel'))) {
+       (!e.target.matches('.area')) && (!e.target.matches('.image-hotel') && (!e.target.matches('.img-hotel')))) {
         
         zoomOutImage()
     }
 }
 
 window.onresize = function() {
+    // animation()
+    // stopAnimation(3000)
     adjustWidth()
     if(isSlideLeft) {
         for(let i=inf; i<=sup; i++) {
