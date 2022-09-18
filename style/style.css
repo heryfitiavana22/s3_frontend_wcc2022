@@ -480,10 +480,10 @@ nav {
     cursor: zoom-in;
 }
 .hot1, .hot2 {margin-bottom: 25px;}
-.hotel1 {background: url('../assets/img/ralph-ravi-kayden-mR1CIDduGLc-unsplash.jpg'); background-size: cover, contain;}
-.hotel2 {background: url('../assets/img/brian-babb-XbwHrt87mQ0-unsplash.jpg'); background-size: cover, contain;}
-.hotel3 {background: url('../assets/img/aubrey-odom-mabey-ITzfgP77DTg-unsplash.jpg'); background-size: cover, contain;}
-.hotel4 {background: url('../assets/img/naomi-ellsworth-EMPLSuvDuhQ-unsplash.jpg'); background-size: cover, contain;}
+.hotel1 {background: url('../assets/img/ralph-ravi-kayden-mR1CIDduGLc-unsplashm.jpg'); background-size: cover, contain;}
+.hotel2 {background: url('../assets/img/brian-babb-XbwHrt87mQ0-unsplashm.jpg'); background-size: cover, contain;}
+.hotel3 {background: url('../assets/img/aubrey-odom-mabey-ITzfgP77DTg-unsplashm.jpg'); background-size: cover, contain;}
+.hotel4 {background: url('../assets/img/naomi-ellsworth-EMPLSuvDuhQ-unsplashm.jpg'); background-size: cover, contain;}
 .image-hotel:hover {transform: scale(1.01);}
 /* .image-hotel > img {width: 100%; border-radius: 8px;} */
 .description {margin-left: 10px;}
@@ -503,7 +503,7 @@ nav {
 
 .right {
     display: flex;
-    background-image: url('../assets/img/brian-babb-XbwHrt87mQ0-unsplash.jpg');
+    background-image: url('../assets/img/christian-bartolone-TaS_pGbMgRs-unsplash.jpg');
     background-size: cover;
     position: fixed;
     top: 0;
@@ -519,7 +519,7 @@ nav {
     border-radius: 8px;
 }
 .img-hotel {
-    background-image: url('../assets/img/johnson-johnson-U6Q6zVDgmSs-unsplash\ \(1\).jpg');
+    background-image: url('../assets/img/johnson-johnson-U6Q6zVDgmSs-unsplashm.jpg');
     background-size: cover;
     width: 180px;
     height: 100px;
