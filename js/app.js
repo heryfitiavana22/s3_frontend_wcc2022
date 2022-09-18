@@ -1,5 +1,10 @@
 let inputTitle = document.querySelector('.title-input'),
     city_moab = document.querySelector('.title>span');
+
+let animation = document.querySelector('.animation');
+setTimeout(()=>{
+    animation.style.transform = 'scale(0)'
+},8000)
     
 function showInputTitle() {
     inputTitle.style.left = '0'
