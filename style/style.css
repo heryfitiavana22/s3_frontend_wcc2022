@@ -510,14 +510,26 @@ nav {
     right: 0;
     height: 100%;
 }
+.place-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.place-container:hover > .place > g > circle {fill: #F49338;}
 .hotel_proposed {
     position: absolute;
     padding: 5px;
-    left: 10%;
-    top: 35%;
+    /* left: 10%;
+    top: 35%; */
+    left: -178%;
+    top: -192%;
     background-color: #fff;
     border-radius: 8px;
+    transform: scale(0);
+    transition: all 0.3s ease;
 }
+.place-container:hover > .hotel_proposed {transform: scale(1);}
 .img-hotel {
     background-image: url('../assets/img/johnson-johnson-U6Q6zVDgmSs-unsplashm.jpg');
     background-size: cover;
@@ -558,12 +570,6 @@ nav {
     transition: all .5s ease;
 }
 .btn-details:hover > .arrow-right {transform: translateX(10px)  rotate(180deg);}
-
-.place-container {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-}
 .info {
     display: flex;
     align-items: center;
