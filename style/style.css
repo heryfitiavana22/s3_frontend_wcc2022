@@ -7,6 +7,7 @@ body {
     width: 100%;
     font-family: 'MADE Okine Sans PERSONAL USE Light' !important;
     font-size: 14px !important;
+    overflow-x: hidden;
 }
 ul {    
     margin: 0 !important;
@@ -33,6 +34,13 @@ nav {
     color: #766E66;
     cursor: pointer;
 }
+.list-icon > li > span, .line-list-icon, .close-list-icon {display: none;}
+.toggle-icon {
+    display: none;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+.toggle-icon:hover {transform: rotate(180deg);}
 .icon{transition: all 0.4s ease;} 
 .active {
     text-align: center;
@@ -76,7 +84,9 @@ nav {
 .img-nav:hover {transform: translateX(2px);}
 
 .left-content {
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 33.44%, #F7F5F6 54.38%, #FFFFFF 69.89%, #F7F5F6 82.55%, #FFFFFF 100%);
     padding: 28px 25px;
+    z-index: -333;
 }
 .book_buy {display: flex;}
 .book_buy > div {
@@ -111,6 +121,7 @@ nav {
     height: 24px;
     cursor: pointer;    
     transition: all 0.5s ease;
+    z-index: 3;
 }
 .search-title:hover {transform: scale(1.2);}
 .title > span {
@@ -152,16 +163,17 @@ nav {
 .title-input {
     position: absolute;
     border-radius: 8px;
-    border: 1px solid #9b9b9b;
-    top: 15px;
-    /* left: 31px; */
-    left: -50%;
+    border: 1px solid #f7f5f6;
+    width: 95%;
+    height: 40px;
+    top: 8px;
+    left: -100%;
+    padding-left: 45px;
     transition: all 0.3s ease;
+    background-color: #F7F5F6;
+    z-index: 1;
 }
-.title-input:focus-visible {
-    outline: none;
-    border: 1px solid #191715;
-}
+.title-input:focus-visible {outline: none;}
 
 .navigation {
     display: flex;
@@ -344,16 +356,17 @@ nav {
     border-radius: 8px;
     -webkit-filter: brightness(100%);
     filter: brightness(80%) ;
-    z-index: -1;
+    z-index: 1;
 }
-.price-container {width: 100%;}
+.price-container {width: 100%; z-index: 5;}
 .price {font-size: 24px; font-weight: bold;}
 .per_night {font-size: 12px;}
 .caption-area {
     width: 100%;
     font-size :18px;
+    z-index: 3;
 }
-.footer-area {margin-bottom: 14px;}
+.footer-area {margin-bottom: 14px;z-index: 5;}
 .star-area {
     transition: all 0.3s ease; 
     cursor: pointer;
@@ -381,7 +394,7 @@ nav {
     height: 100%;
     background-color: rgba(0, 0, 0, .6);
     transition: all 1s ease;
-    z-index: 10;
+    z-index: 99999;
     transform: scale(0);
 }
 .zoom-in > img {
@@ -418,6 +431,75 @@ nav {
 .line-slide:hover > path {stroke: #000;}
 .active-image  > path {stroke: #000;}
 
+.list-hotel-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 290px;
+}
+.caption-list {
+    display: flex;
+    justify-content: space-between;
+    color:  #292726;
+}
+.caption-right {padding-top: 3px;}
+@keyframes animate-arr-d {
+    0% {transform: translateY(2px);}
+    100% {transform: translateY(0);}
+}
+.arr-d {
+    background-color: #EFEFEF;
+    transition: all 0.5s ease;
+    animation-duration: 0.3s;
+    animation-iteration-count: 2;
+    cursor: pointer;
+}
+.arr-d:hover {animation-name: animate-arr-d;background-color: #c6c6c6; }  
+.arr-d > path {fill: #292726;}
+
+.list-hotel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px!important;
+}
+.list-hotel > li {
+    position: relative;
+    display: flex;
+    width: 48%;
+    padding: 5px;
+    padding-bottom: 0;
+    background-color: #fff;
+}
+.image-hotel {
+    display: flex;
+    width: 27%;
+    height: 100%;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: zoom-in;
+}
+.hot1, .hot2 {margin-bottom: 25px;}
+.hotel1 {background: url('../assets/img/ralph-ravi-kayden-mR1CIDduGLc-unsplash.jpg'); background-size: cover, contain;}
+.hotel2 {background: url('../assets/img/brian-babb-XbwHrt87mQ0-unsplash.jpg'); background-size: cover, contain;}
+.hotel3 {background: url('../assets/img/aubrey-odom-mabey-ITzfgP77DTg-unsplash.jpg'); background-size: cover, contain;}
+.hotel4 {background: url('../assets/img/naomi-ellsworth-EMPLSuvDuhQ-unsplash.jpg'); background-size: cover, contain;}
+.image-hotel:hover {transform: scale(1.01);}
+/* .image-hotel > img {width: 100%; border-radius: 8px;} */
+.description {margin-left: 10px;}
+.description > .footer-area {margin-bottom: 0!important;}
+.description > .caption-area {font-size: 16px;}
+.description > .price-container > .price {font-size: 20px;}
+.to-hotel {
+    position: absolute;
+    top: 25px;
+    right: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.to-hotel:hover {transform: translateX(2px);}
+.to-hotel > rect:hover {fill: #906844;}
+
 .right {
     background-image: url('../assets/img/christian-bartolone-TaS_pGbMgRs-unsplash.jpg');
     background-size: cover;
@@ -433,4 +515,129 @@ nav {
     .circle.b {top: 0px;}
     .price {font-size: 20px;}
     .caption-area {font-size: 15px;}
+    .description > .caption-area {font-size: 14px;}
+    .description > .footer-area {font-size: 10px;}
+    .description > .price-container > .price {font-size: 16px;}
+    .to-hotel {
+        top: 16px;
+        height: 35px;
+        width: 35px;
+    }
 }
+
+@media screen and (max-width : 992px) {
+    .left {width: 100% !important;}
+    .right {display: none;}
+    nav {padding: 9px 40px;}
+    .list-icon > li {padding: 12px 0;}
+    .active, .img-nav {width: 45px; height: 45px;}
+    .vector {top: 16px;}
+}
+
+@media screen and (max-width : 768px) {
+    body {font-size: 12px !important;}
+    .toggle-icon {
+        display: block;
+        margin: 12px 0;
+    }
+    .icon-to-left {
+        /* display: none; */
+        position: fixed;
+        top: 0;
+        left: -100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        background-color: #191715;
+        transition: all 0.5s ease;
+    }
+    .list-icon > li {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        color: #fff;
+    }
+    .list-icon > li > .icon {
+        color: #F49338;
+        margin-top: 4px;
+        margin-left: 10px;
+    }
+    .list-icon > li > span {display: inline; position: relative;}
+    .line-list-icon {
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 1px;
+        background-color: #F49338;
+        transition: all 0.5s ease;
+    }
+    .list-icon > li:hover > span > .line-list-icon{width: 100%;}
+    .active > span > span {width: 50%;}
+    .active:hover {
+        background-color: #191715;
+        border: 1px solid #191715;
+        color: #fff !important;
+    }
+    .list-icon > li:hover > .dashboard {transform: rotate(180deg);}
+    .list-icon > li:hover > .notification, .list-icon > li:hover > .heart-half {transform: scale(1.2);}
+    @keyframes animaton-shopping {
+        0% {transform: translateX(2px);}
+        20% {transform: translateX(0px);}
+        40% {transform: translateX(2px);}
+        60% {transform: translateX(0px);}
+        70% {transform: translateX(2px);}
+        80% {transform: translateX(0px);}
+        90% {transform: translateX(2px);}
+        100% {transform: translateX(0px);}
+    }
+    .close-list-icon {display: block;}
+
+    .circle.t {top: -6px;}
+    .circle.b {top: 1px;}
+
+    nav {background-color: inherit;padding: 9px 25px;}
+    .nav-search, 
+    .title > .ellipse,
+    .nav-list > li > svg,
+    .nav-list > li > iconify-icon, 
+    .nav-list > li > div {display: none;}
+    .nav-list > li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 30px;
+        padding: 0;
+        border: 1px solid #fff;
+        transition: all .5s ease;
+        background-color: #fff;
+        color: #000;
+    }
+    .nav-list > li:hover {
+        border: 1px solid #F49338;
+        background-color: #fff;
+        color: #000;
+    }
+    li.active-item {
+        background-color: #F49338;
+        color: #fff;
+        border: 1px solid #F49338;
+    }
+    li.active-item:hover {
+        background-color: #fff;
+        color: #F49338;
+    }
+    .line.t {top: 0px;}
+    .line.b {top: 5px;}
+    .title > span {transform: translateY(60px) !important;}
+    .title-input {left: 0 !important; top: 12px; width: 100%;}
+    .search-title {margin-left: 13px; width: 14px; height: 14px;}
+
+    .list-hotel > li {width: 100%; margin-bottom: 20px; height: 100px;}
+    .description > .footer-area {margin: 10px 0 !important;}
+    .to-hotel {top: 30px;}
+}  

@@ -2,12 +2,20 @@ let inputTitle = document.querySelector('.title-input'),
     city_moab = document.querySelector('.title>span');
     
 function showInputTitle() {
-    inputTitle.style.left = '31px'
+    inputTitle.style.left = '0'
     city_moab.style.transform = 'translateY(50px)'
 }
 function hideInputTitle() {
-    inputTitle.style.left = '-50%'
+    inputTitle.style.left = '-100%'
     city_moab.style.transform = 'translateY(0)'
+}
+
+let listIcon = document.querySelector('.list-icon')
+function showListIcon() {
+    listIcon.style.left = '0'
+}
+function hideListIcon() {
+    listIcon.style.left = '-100%'
 }
 
 let intervalStar = undefined,
@@ -23,13 +31,19 @@ function rotateStar(star) {
 }
 
 let body = document.querySelector('body');
-function zoomInImage(area) {
-    let img = area.childNodes[1].cloneNode(true),
-        div = document.createElement('div');
+function zoomInImage(source, area) {
+    let div = document.createElement('div'), 
+        img = undefined;
 
     div.classList.add('zoom-in');
-    div.insertAdjacentElement('beforeend', img)
-    div.insertAdjacentHTML('beforeend', '<iconify-icon icon="mi:close" class="close" onclick="zoomOutImage(this)"></iconify-icon>')
+    if(source == undefined) {
+        img = area.childNodes[1].cloneNode(true);
+        div.insertAdjacentElement('beforeend', img)
+    } else {
+        img = '<img src="'+source+'" alt="hotel">'
+        div.insertAdjacentHTML('beforeend', img)
+    }
+    div.insertAdjacentHTML('beforeend', '<iconify-icon icon="mi:close" class="close" onclick="zoomOutImage()"></iconify-icon>')
     body.insertAdjacentElement('beforeend', div);
     setTimeout(()=> {
         div.style.transform = 'scale(1)'
@@ -47,14 +61,14 @@ function zoomOutImage() {
     }
 }
 let area = document.querySelectorAll('.area'),
-    areaWidth = 0,
+    areaWidth = 0, currentWidth = 0,
     arrowLeft = document.querySelector('.to-left > path'),
     arrowRight= document.querySelector('.to-right > path'),
     slideImageArea = document.querySelector('.slide-image-area'),
     inf = 0, sup = 2, margin, isSlideLeft = false, isSlideRight = false, left = 0;
 function slideLeft() {
     if((sup >= (area.length-1))) return;
-    
+    console.log('lf '+left);
     for(let i=0; i<area.length; i++) {
         area[i].style.left = -left + 'px';
     }
@@ -69,7 +83,7 @@ function slideLeft() {
 
 function slideRight() {
     if((inf <= 0)) return
-    
+    console.log('mr '+margin);
     for(let i=0; i<area.length; i++) {
         area[i].style.left = margin + 'px';
     }
@@ -88,8 +102,16 @@ function adjustWidth() {
         areaContainer = document.querySelector('.area-container'),
         areaContainerHeight = areaContainer.clientHeight;
 
-    areaWidth = (32*widthContainer) / 100; // 32% anle largeur    
-    margin = (widthContainer - (areaWidth*3))/2 -5;
+    currentWidth = window.innerWidth; // largeur de l'ecran
+    if(currentWidth > 768) {
+        areaWidth = (32*widthContainer) / 100; // 32% anle largeur    
+        margin = (widthContainer - (areaWidth*3))/2 -5;
+    } else {
+        areaWidth = (48*widthContainer) / 100; // 32% anle largeur    
+        margin = (widthContainer - (areaWidth*2))/2 + 5;
+        // isSlideLeft = true;
+        sup--;
+    }
     left = areaWidth+margin;
 
     slideImageArea.style.marginTop = (areaContainerHeight+30) + 'px'
@@ -116,7 +138,8 @@ window.onclick = function(e) {
         hideInputTitle()
     }
 
-    if((!e.target.matches('.zoom-in > img')) && (!e.target.matches('.area'))) {
+    if((!e.target.matches('.zoom-in > img')) && (!e.target.matches('.area>img')) && 
+       (!e.target.matches('.area')) && (!e.target.matches('.image-hotel'))) {
         
         zoomOutImage()
     }
@@ -134,6 +157,7 @@ window.onresize = function() {
             area[i].style.left = margin + 'px';
         }
     }
+    if(currentWidth <= 768) {slideLeft()}
 }
 
 window.onload = function() {adjustWidth()}
