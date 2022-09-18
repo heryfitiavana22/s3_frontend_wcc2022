@@ -9,8 +9,9 @@ body {
     font-size: 14px !important;
 }
 ul {    
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important; 
+    list-style-type: none;
 }
 /* .left {
     
@@ -25,7 +26,6 @@ nav {
 .list-icon {
     display: flex;
     justify-content: space-between;
-    list-style-type: none;
     width: 251px;
 }
 .list-icon > li {
@@ -76,7 +76,7 @@ nav {
 .img-nav:hover {transform: translateX(2px);}
 
 .left-content {
-    padding: 28px 40px;
+    padding: 28px 25px;
 }
 .book_buy {display: flex;}
 .book_buy > div {
@@ -124,17 +124,21 @@ nav {
 }
 .ellipse {
     position: absolute;
-    right: 0;
-    top: 13px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 26px;
-    height: 26px;
     background-color: #9F9B98;
     border: 1px solid #9F9B98;
     border-radius: 8px;
     transition: all 0.5s ease;
+}
+.title > .ellipse {
+    right: 0;
+    top: 13px;
+}
+.ellipse.medium {
+    width: 26px;
+    height: 26px;
 }
 .ellipse:hover {background-color: #fff;}
 .round-center {
@@ -151,7 +155,7 @@ nav {
     border: 1px solid #9b9b9b;
     top: 15px;
     /* left: 31px; */
-    left: -24%;
+    left: -50%;
     transition: all 0.3s ease;
 }
 .title-input:focus-visible {
@@ -160,8 +164,259 @@ nav {
 }
 
 .navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     margin-top: 28px;
 }
+.nav-list {
+    display: flex;
+    justify-content: space-between;
+    width: 83%;
+}
+.nav-list > li {
+    width: 23%;
+    position: relative;
+    padding: 21px;
+    background-color: #292726;
+    color: #fff;
+    padding: 14px 6px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.nav-list > li:hover {
+    background-color: #484848;
+}
+.vector {
+    position: absolute;
+    color: #fff;
+    left: 7px;
+    top: 18px;
+    height: 13px;
+    width: 13px;
+}
+.vector.rot_left {left: 12px;}
+.rot_left {transform: rotate(180deg);}
+.g {
+    display: flex;
+    color: #777574;
+}
+.nav-list > li > .ellipse {
+    top: 14px; 
+    border-radius: 4px;
+    background-color: #777574;
+    border: 1px solid #777574;
+}
+.nav-list > li > .ellipse.l {right: 29px;}
+.nav-list > li > .ellipse.r {right: 6px;}
+.ellipse.small {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+}
+.nav-list > li:hover > .ellipse.l {top: 16px;}
+.nav-list > li:hover > .ellipse.r {top: 12px;}
+.nav-list > li > .ellipse.l:hover {top: 16px;}
+.nav-list > li > .ellipse.r:hover {top: 16px;}
+.arrow-down {
+    background-color: #777574;
+    position: absolute;
+    top: 17px;
+    right: 6px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+.nav-list > li:hover > .arrow-down {top: 19px;}
+.guests, .rooms {
+    position: relative;
+    color: #777574;
+}
+.guests {top: 2px;}
+.rooms {top: -3px;}
+
+.small-square {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 49px;
+    padding: 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.adjust-container {
+    background-color: #292726;
+    padding: 10px 15px;
+}
+.adjust-container:hover {background-color: #4c4c4c;}
+.adjust-container > .line {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+}
+.line.t {top: 10px;}
+.line.b {top: 10px;}
+.circle {
+    position: relative;
+    display: block;
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+.circle.t {top: -9px; left: 3px;}
+.circle.b {top: -1px; left: 5px;}
+.adjust-container:hover .circle.t {left: 11px;}
+.adjust-container:hover .circle.b {left: -3px;}
+.nav-search {
+    justify-content: center;
+    align-items: center;
+    background-color: #F49338;
+}
+.nav-search > svg {transition: all 0.3s ease;}
+.nav-search:hover > svg {transform: scale(1.2);}
+.nav-search > svg > path {fill: #fff;}
+
+.content {
+    margin-top: 46px;
+}
+.result_moab {
+    font-size: 24px; color: #292726;
+    margin-bottom: 28px;
+}
+.moab {font-weight: bolder;}
+.result_moab > .number {
+    position: relative;
+    top: -6px;
+    left: 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 25px;
+    background: #EFEFEF;
+    backdrop-filter: blur(2px);
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.hotel-recommended {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 36px;
+    padding: 0 5px;
+    overflow: hidden;
+} 
+.area-container {
+    position: absolute;
+    display: flex;
+    min-width: 100%;
+    /* justify-content: space-between; */
+    overflow: hidden;
+}
+.area {
+    position: relative;
+    left: 0;
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 32%;
+    height: 180px;
+    color: #fff;
+    padding-top: 75px;
+    padding-left: 15px;
+    cursor: zoom-in;
+    transition: all 0.6s ease; 
+}
+/* .area4 {
+    position: absolute;
+    left: 68%;
+} */
+.area > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    -webkit-filter: brightness(100%);
+    filter: brightness(80%) ;
+    z-index: -1;
+}
+.price-container {width: 100%;}
+.price {font-size: 24px; font-weight: bold;}
+.per_night {font-size: 12px;}
+.caption-area {
+    width: 100%;
+    font-size :18px;
+}
+.footer-area {margin-bottom: 14px;}
+.star-area {
+    transition: all 0.3s ease; 
+    cursor: pointer;
+}
+.star-area:hover path {fill: #d0a416;}
+.rate, .location {
+    font-size: 12px;
+    position: relative;
+    top: 2px;
+}
+.icon-location {
+    margin-left: 15px; 
+    transition: all 0.3s ease; 
+    cursor: pointer;
+}
+.icon-location:hover {transform: scale(1.2);}
+.zoom-in {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    transition: all 1s ease;
+    z-index: 10;
+    transform: scale(0);
+}
+.zoom-in > img {
+    width: 80%;
+    height: 500px;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.close:hover {
+    color: #F49338;
+    transform: rotate(180deg);
+}
+
+.slide-image-area {margin-top: 30px;}
+.arrow, .line-slide {cursor: pointer; transition: all 0.3s ease;}
+.to-left {margin-right: 5px;}
+.to-left:hover {transform: translateX(-2px);}
+.to-left > path {fill: #C9C5C2;}
+.to-left:hover > path {fill: #000;}
+.to-right {
+    margin-left: 5px;
+    transform: rotate(180deg);
+}
+.to-right:hover {transform: translateX(2px) rotate(180deg);}
+.available > path {fill: #000;}
+.line-slide > path {stroke: #C9C5C2;}
+.line-slide:hover > path {stroke: #000;}
+.active-image  > path {stroke: #000;}
 
 .right {
     background-image: url('../assets/img/christian-bartolone-TaS_pGbMgRs-unsplash.jpg');
@@ -170,4 +425,12 @@ nav {
     top: 0;
     right: 0;
     height: 100%;
+}
+
+@media screen and (max-width : 1200px) {
+    .nav-list {font-size: 12px;}
+    .circle.t {top: -7px;}
+    .circle.b {top: 0px;}
+    .price {font-size: 20px;}
+    .caption-area {font-size: 15px;}
 }
